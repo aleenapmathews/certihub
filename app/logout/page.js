@@ -11,12 +11,17 @@ import { useRouter } from "next/navigation";
 function LogoutPage() {
   const router = useRouter();
   const setUserLogout = userStore((state) => state.setUserLogout);
+  const setUserId = userStore((state) => state.setUserId);
+  useEffect(async () => {
+    const cookieStore = await cookies();
 
-  useEffect(() => {
     // Handle logout logic (e.g., clear session, tokens)
     console.log("User logged out");
     // Redirect to login page after logout
     setUserLogout();
+    setUserId(-1);
+    cookieStore.delete("username");
+    cookieStore.delete("user_id");
   }, []);
 
   return (
