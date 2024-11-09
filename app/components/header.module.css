@@ -1,0 +1,75 @@
+.header {
+    background-color: var(--color1);
+    color: white;
+    padding: 20px 0;
+    text-align: center !important;
+    /* height: 210px; */
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 35px;
+  }
+  
+  .nav {
+    margin-top: 1px;
+    font-size: 1.2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 3rem;
+    font-size: 1.5rem;
+  }
+  
+  .nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .nav a:hover {
+    background-color: white;
+    color: var(--color1);
+  }
+  
+  .container h1 {
+    color: var(--color5);
+    font-size: 3rem;
+  }
+  
+  .branding {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 150px;
+    height: 100px;
+    scale: 2;
+    margin-right: 4rem;
+    margin-left: 5rem;
+  }
+  
+  .welcome-text {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-left: 60px;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .settings-icon {
+    width: 2.5rem;
+    right: 0;
+  }
+  
+  .login-btn {
+    border: 2px solid #ffffff;
+    border-radius: 1rem;
+  }
+  

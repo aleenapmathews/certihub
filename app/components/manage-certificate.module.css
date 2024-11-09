@@ -1,0 +1,13 @@
+.table th {
+    background-color: var(--color2);
+    font-size: 1.3rem;
+  }
+  .dlt {
+    background-color: #b80606;
+    margin-left: 8px;
+  }
+  
+  .dlt:hover {
+    background-color: rgb(240, 15, 15);
+  }
+  

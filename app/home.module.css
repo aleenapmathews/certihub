@@ -1,0 +1,21 @@
+/* Hero Section */
+.hero {
+    background-color: var(--color2);
+    color: white;
+    text-align: center;
+    padding: 60px 20px; 
+  }
+  
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  
