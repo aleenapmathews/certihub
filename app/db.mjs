@@ -1,8 +1,10 @@
-// import Database from "better-sqlite3"
-
 import Database from "better-sqlite3";
+import { join } from "path";
 
-export const db = new Database("certihub.db");
+const db_path = join(process.cwd(), "certihub.db");
+
+console.log(db_path);
+const db = new Database(db_path);
 
 //create user table
 db.exec(`CREATE TABLE IF NOT EXISTS"user" (
@@ -11,9 +13,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS"user" (
 	"id"	INTEGER,
 	PRIMARY KEY("id" AUTOINCREMENT));`);
 
-
-
-db.exec(`CREATE TABLE IF NOT EXISTS "document2" (
+db.exec(`CREATE TABLE IF NOT EXISTS "document" (
 	"user_id"	INTEGER NOT NULL,
 	"url"	TEXT NOT NULL,
 	"file_name"	TEXT NOT NULL,
@@ -22,8 +22,6 @@ db.exec(`CREATE TABLE IF NOT EXISTS "document2" (
   "expiry_date" TEXT,
 	PRIMARY KEY("id")
 );`);
-
-
 
 export function getDocumentsWithUserId(user_id) {
   const rows = db
@@ -42,7 +40,6 @@ function getUsernameWithUserId(user_id) {
   return row.username;
 }
 
-
 export function getUserIdWithUsernameAndPassword(username, password) {
   const row = db
     .prepare(`SELECT id from user where username=? and password=?`)
@@ -53,19 +50,20 @@ export function getUserIdWithUsernameAndPassword(username, password) {
   return row.id;
 }
 
-export function createDocument(user_id, url, file_name,expiry_date,issuer) {
-  db.prepare(`INSERT into document(user_id,url,file_name,expiry_date,issuer)
- VALUES(?,?,?,?,?)`).run(user_id,url,file_name,expiry_date,issuer);
-
+export function createDocument(user_id, url, file_name, expiry_date, issuer) {
+  db.prepare(
+    `INSERT into document(user_id,url,file_name,expiry_date,issuer)
+ VALUES(?,?,?,?,?)`
+  ).run(user_id, url, file_name, expiry_date, issuer);
 }
 
-
-export function createUser(username,password){
-	db.prepare(`INSERT into user(username,password)
-VALUES (?,?);`).run(username,password);
+export function createUser(username, password) {
+  db.prepare(
+    `INSERT into user(username,password)
+VALUES (?,?);`
+  ).run(username, password);
 }
 
-
-export function deleteDoc(id){
+export function deleteDoc(id) {
   db.prepare(`DELETE  FROM document where id=?`).run(id);
 }
