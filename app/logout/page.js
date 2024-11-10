@@ -27,7 +27,7 @@ function LogoutPage() {
   return (
     <div>
       <Header />
-      <div>
+      <div> 
         <h2>Logout</h2>
         <div className={styles["logout-container"]}>
           <p className={styles["para"]}>

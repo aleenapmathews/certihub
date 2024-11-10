@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./manage-certificate.module.css";
 import deleteDocAction from "../actions/deleteDoc";
 
-export default  function ManageCertificates({ certificates }) {
+export default function ManageCertificates({ certificates }) {
   return (
     <section>
       <h2>Manage Certificates</h2>
@@ -27,14 +27,20 @@ export default  function ManageCertificates({ certificates }) {
           {certificates.map((certificate, index) => (
             <tr key={certificate.id}>
               <td>{index + 1}</td>
-              <td>{certificate.url}</td>
-              <td>{certificate.file_name}</td>
+              <td>
+                <Link href={certificate.url}>{certificate.file_name}</Link>{" "}
+              </td>
               <td>{certificate.issuer}</td>
+              <td>{certificate.expiry_date}</td>
               <td>{certificate.expiry_date}</td>
 
               <td>
                 <form action={deleteDocAction}>
-                  <input name="id" hidden={true} defaultValue={certificate.id}></input>
+                  <input
+                    name="id"
+                    hidden={true}
+                    defaultValue={certificate.id}
+                  ></input>
                   <button type="submit" className={styles["dlt"]}>
                     Delete
                   </button>

@@ -1,10 +1,9 @@
 import Database from "better-sqlite3";
 import { join } from "path";
 
-const db_path = join(process.cwd(), "certihub.db");
 
-console.log(db_path);
-const db = new Database(db_path);
+
+const db = new Database("certihub.db");
 
 //create user table
 db.exec(`CREATE TABLE IF NOT EXISTS"user" (

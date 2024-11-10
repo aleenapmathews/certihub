@@ -37,7 +37,7 @@ function Header() {
               <Link href="/reports">Reports</Link>
               <Link href="/logout">Logout</Link>
               <p>{user_name}</p>
-            </>
+            </> 
           ) : (
             <Link href="/login" className={styles["login-btn"]}>
               Login

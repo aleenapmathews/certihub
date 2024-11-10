@@ -10,13 +10,7 @@ import { userStore } from "../stores/user";
 // import { Uploader } from "../components/Uppy";
 
 export default function NewDocPage() {
-  const router = useRouter();
   const user_id = userStore((state) => state.user_id);
-  function handleUpload(e) {
-    e.preventDefault();
-    router.push("/manage-certificates");
-  }
-
   return (
     <div>
       <Header></Header>
@@ -35,8 +29,6 @@ export default function NewDocPage() {
             id="title"
           />
         </div>
-
-        
 
         <div className={styles["input-grp"]}>
           <label htmlFor="issuer">Issuer</label>
